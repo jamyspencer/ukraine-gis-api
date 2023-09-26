@@ -1,5 +1,7 @@
 fastapi
 uvicorn
 SQLAlchemy
+geoalchemy2
 psycopg2-binary
 python-dotenv
+shapely

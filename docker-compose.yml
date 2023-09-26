@@ -4,4 +4,4 @@ services:
     build: .
     ports:
       - "8000:8000"
-    command: python3 -m uvicorn app:app  --host 0.0.0.0
+    command: python3 -m uvicorn server.main:app  --host 0.0.0.0
