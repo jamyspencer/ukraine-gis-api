@@ -4,7 +4,7 @@ from typing import Optional
 from pathlib import Path
 
 class Settings:
-    _instance = Nonex
+    _instance = None
     POSTGRES_USER : str = os.getenv("POSTGRES_USER")
     POSTGRES_PASSWORD = os.getenv("POSTGRES_PASSWORD")
     POSTGRES_SERVER : str = os.getenv("POSTGRES_SERVER","localhost")
