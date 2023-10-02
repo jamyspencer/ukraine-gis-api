@@ -12,7 +12,8 @@
                 "--reload",
                 "--port",
                 "8000"
-            ]
+            ],
+            "env":{"POSTGRES_PORT":"5001","POSTGRES_DB":"gis","POSTGRES_USER":"gis_admin","POSTGRES_PASSWORD":"leroy"}
         }
     ]
 }

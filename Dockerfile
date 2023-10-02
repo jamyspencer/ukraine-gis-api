@@ -1,4 +1,4 @@
-FROM python:3.11
+FROM python:3
 
 COPY ./dependencies .
 RUN pip install -r ./dependencies

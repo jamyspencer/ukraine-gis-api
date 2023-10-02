@@ -5,14 +5,18 @@ from pathlib import Path
 
 class Settings:
     _instance = None
-    POSTGRES_USER : str = os.getenv("POSTGRES_USER")
-    POSTGRES_PASSWORD = os.getenv("POSTGRES_PASSWORD")
-    POSTGRES_SERVER : str = os.getenv("POSTGRES_SERVER","localhost")
-    POSTGRES_PORT : str = os.getenv("POSTGRES_PORT",5432) # default postgres port is 5432
-    POSTGRES_DB : str = os.getenv("POSTGRES_DB","gis")
-    DATABASE_URL = f"postgresql+psycopg2://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_SERVER}:{POSTGRES_PORT}/{POSTGRES_DB}"
+    DATABASE_DICT = {
+        "host":  os.getenv("POSTGRES_SERVER","localhost"),
+        "port": os.getenv("POSTGRES_PORT",5432),
+        "database": os.getenv("POSTGRES_DB","gis"),
+        "username": os.getenv("POSTGRES_USER"),
+        "password": os.getenv("POSTGRES_PASSWORD"),
+        "drivername": 'postgresql',
+        'query': {'charset': 'utf8'}
+    }
 
     def __new__(cls):
         if cls._instance == None:
             cls._instance = super(Settings, cls).__new__(cls)
+            print(f"Database Connection: {cls.DATABASE_DICT}")
         return cls._instance
